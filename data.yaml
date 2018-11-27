@@ -18,7 +18,7 @@ environments:
     subnet_address_prefix: "10.0.2.0/24"
 
 vmlist:
-  - name: vmone
+  - name: "{{ item }}"
     resource_group_name: rgmgmt
     vm_size               : "Standard_DS1_v2"
     os_disk_managed_disk_type: "StandardSSD_LRS"
@@ -26,10 +26,57 @@ vmlist:
       - size: 10
         storage_account_type: "Standard_LRS"
       - size: 20
+    with_items:
+          - BDD_Coffre
+          - CoreBanking_Coffre
+          - X3S_Coffre
+          - X3_Coffre
+          - BPM_Coffre
+          - SDE_Coffre
+          - HTTP_Coffre
+          
         # storage_account_type: "Premium_LRS"
-  - name: vmtwo
-    resource_group_name: rgtwo
+  - name: BDD_TU
+    resource_group_name: CIF-CONV-TU
     vm_size: "Standard_DS1_v2"
     data_disks:
       - size: 30
         storage_account_type: "Standard_LRS"
+        
+   - name: CoreBanking_TU
+     resource_group_name: CIF-CONV-TU
+     vm_size: "Standard_DS1_v2"
+     data_disks:
+      - size: 30
+        storage_account_type: "Standard_LRS"
+    - name: X3S_TU
+      resource_group_name: CIF-CONV-TU
+      vm_size: "Standard_DS1_v2"
+      data_disks:
+       - size: 30
+         storage_account_type: "Standard_LRS"
+    - name: X3_TU
+      resource_group_name: CIF-CONV-TU
+      vm_size: "Standard_DS1_v2"
+      data_disks:
+       - size: 30
+         storage_account_type: "Standard_LRS"    
+     - name: BPM_TU
+       resource_group_name: CIF-CONV-TU
+       vm_size: "Standard_DS1_v2"
+       data_disks:
+       - size: 30
+         storage_account_type: "Standard_LRS"
+     - name: SDE_TU
+       resource_group_name:  CIF-CONV-TU
+       vm_size: "Standard_DS1_v2"
+       data_disks:
+        - size: 30
+          storage_account_type: "Standard_LRS"
+     - name: vmtwo
+       resource_group_name: rgtwo
+       vm_size: "Standard_DS1_v2"
+       data_disks:
+        - size: 30
+          storage_account_type: "Standard_LRS"     
+        
