@@ -1,26 +1,26 @@
 # Global params
 global:
-  ubuntu1604: |
-    publisher = "Canonical"
-        offer     = "UbuntuServer"
-        sku       = "16.04-LTS"
-        version   = "latest"
+  redhat72: |
+     publisher = "RedHat"
+    offer     = "RHEL"
+    sku       = "7.2"
+    version   = "latest"
   c9admin_ssh_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBlS0XJITBaLXiN3UTiKlMPjY9i/fOOpb3TEnIs+M4oI kim0@Kamal-MBP-7.local"
   location: "northeurope"
-  vnet_address_space: "10.0.0.0/16"
+  vnet_address_space: "172.16.0.0/16"
   mgmt_env_name: mgmt
 
 # Assumes every env, gets one RG, one subnet and one NSG
 environments:
   - name: mgmt
-    subnet_address_prefix: "10.0.1.0/24"
+    subnet_address_prefix: "172.16.10.0/24"
   - name: two
-    subnet_address_prefix: "10.0.2.0/24"
+    subnet_address_prefix: "172.16.20.0/24"
 
 vmlist:
   - name: "{{ item }}"
     resource_group_name: rgmgmt
-    vm_size               : "Standard_DS1_v2"
+    vm_size               : "Standard_D2_v2"
     os_disk_managed_disk_type: "StandardSSD_LRS"
     data_disks:
       - size: 10
@@ -38,44 +38,44 @@ vmlist:
         # storage_account_type: "Premium_LRS"
   - name: BDD_TU
     resource_group_name: CIF-CONV-TU
-    vm_size: "Standard_DS1_v2"
+    vm_size: "Standard_D2_v2"
     data_disks:
       - size: 30
         storage_account_type: "Standard_LRS"
         
    - name: CoreBanking_TU
      resource_group_name: CIF-CONV-TU
-     vm_size: "Standard_DS1_v2"
+     vm_size: "Standard_D2_v2"
      data_disks:
       - size: 30
         storage_account_type: "Standard_LRS"
     - name: X3S_TU
       resource_group_name: CIF-CONV-TU
-      vm_size: "Standard_DS1_v2"
+      vm_size: "Standard_D2_v2"
       data_disks:
        - size: 30
          storage_account_type: "Standard_LRS"
     - name: X3_TU
       resource_group_name: CIF-CONV-TU
-      vm_size: "Standard_DS1_v2"
+      vm_size: "Standard_D2_v2"
       data_disks:
        - size: 30
          storage_account_type: "Standard_LRS"    
      - name: BPM_TU
        resource_group_name: CIF-CONV-TU
-       vm_size: "Standard_DS1_v2"
+       vm_size: "Standard_D2_v2"
        data_disks:
        - size: 30
          storage_account_type: "Standard_LRS"
      - name: SDE_TU
        resource_group_name:  CIF-CONV-TU
-       vm_size: "Standard_DS1_v2"
+       vm_size: "Standard_D2_v2"
        data_disks:
         - size: 30
           storage_account_type: "Standard_LRS"
-     - name: vmtwo
-       resource_group_name: rgtwo
-       vm_size: "Standard_DS1_v2"
+     - name: HTTP_Coffre
+       resource_group_name: CIF-CONV-TU
+       vm_size: "Standard_D2_v2"
        data_disks:
         - size: 30
           storage_account_type: "Standard_LRS"     
