@@ -16,7 +16,18 @@ environments:
     subnet_address_prefix: "172.16.10.0/24"
   - name: two
     subnet_address_prefix: "172.16.20.0/24"
-
+  - name: three
+    subnet_address_prefix: "172.16.30.0/24"
+  - name: four
+    subnet_address_prefix: "172.16.40.0/24"  
+  - name: five
+    subnet_address_prefix: "172.16.50.0/24"
+  - name: six
+    subnet_address_prefix: "172.16.60.0/24"
+  - name: seven
+    subnet_address_prefix: "172.16.70.0/24"
+  - name: eight
+    subnet_address_prefix: "172.16.80.0/24"
 vmlist:
   - name: "{{ item }}"
     resource_group_name: rgmgmt
@@ -48,91 +59,61 @@ vmlist:
           - BPM_TU
           - SDE_TU
           - HTTP_Coffre
-          - Mapping_TU
-    - name: "{{ item }}"
+      
+  - name: Mapping_TU
     resource_group_name: CIF-CONV-TU
     vm_size: "Standard_D2_v2"
     data_disks:
       - size: 30
         storage_account_type: "Standard_LRS      
-     with_items:
-          - BDD_TU
-          - CoreBanking_TU
-          - X3S_TU
-          - X3_TU
-          - BPM_TU
-          - SDE_TU
-          - HTTP_Coffre
-          - Mapping_TU    
-          
-          
+       
+ 
         # storage_account_type: "Premium_LRS"
-  - name: BDD_TU
-    resource_group_name: CIF-CONV-TU
-    vm_size: "Standard_D2_v2"
-    data_disks:
-      - size: 30
-        storage_account_type: "Standard_LRS"
-        
-   - name: CoreBanking_TU
-     resource_group_name: CIF-CONV-TU
-     vm_size: "Standard_D2_v2"
-     data_disks:
-      - size: 30
-        storage_account_type: "Standard_LRS"
-    - name: X3S_TU
-      resource_group_name: CIF-CONV-TU
-      vm_size: "Standard_D2_v2"
-      data_disks:
-       - size: 30
-         storage_account_type: "Standard_LRS"
-    - name: X3_TU
-      resource_group_name: CIF-CONV-TU
-      vm_size: "Standard_D2_v2"
-      data_disks:
-       - size: 30
-         storage_account_type: "Standard_LRS"    
-     - name: BPM_TU
-       resource_group_name: CIF-CONV-TU
-       vm_size: "Standard_D2_v2"
-       data_disks:
-       - size: 30
-         storage_account_type: "Standard_LRS"
-     - name: SDE_TU
-       resource_group_name:  CIF-CONV-TU
-       vm_size: "Standard_D2_v2"
-       data_disks:
-        - size: 30
-          storage_account_type: "Standard_LRS"
-     - name: HTTP_Coffre
-       resource_group_name: CIF-CONV-TU
-       vm_size: "Standard_D2_v2"
-       data_disks:
-        - size: 30
-          storage_account_type: "Standard_LRS" 
+  
           
-     - name: BDD_RT
+  - name: BDD_RT
        resource_group_name: CIF-CONV-RT
        vm_size: "Standard_D8_v3"
        data_disks:
         - size: 30
-          storage_account_type: "Standard_LRS" 
-      - name: CoreBanking_RT
-       resource_group_name: CIF-CONV-RT
-       vm_size: "Standard_D4_v2"
-       data_disks:
-        - size: 30
           storage_account_type: "Standard_LRS"
+          
+  - name: CoreBanking_RT
+    resource_group_name: CIF-CONV-RT
+    vm_size: "Standard_D4_v2"
+    data_disks:
+     - size: 30
+       storage_account_type: "Standard_LRS"
       
-      - name: X3S_RT
-       resource_group_name: CIF-CONV-RT
-       vm_size: "Standard_D3_v2"
-       data_disks:
-        - size: 30
-          storage_account_type: "Standard_LRS" 
-       - name: X3S_RT
-       resource_group_name: CIF-CONV-RT
-       vm_size: "Standard_D3_v2"
-       data_disks:
-        - size: 30
-          storage_account_type: "Standard_LRS"    
+  - name: "{{ item }}"
+    resource_group_name: CIF-CONV-RT
+    vm_size: "Standard_D3_v2"
+    data_disks:
+     - size: 30
+       storage_account_type: "Standard_LRS" 
+    with_items:
+        - X3S_RT
+        - X3_RT
+        
+  - name: BPM_RT
+    resource_group_name: CIF-CONV-RT
+    vm_size: "Standard_D2_v2"
+    data_disks:
+     - size: 30
+       storage_account_type: "Standard_LRS"    
+       
+  - name: SDE_RT
+    resource_group_name: CIF-CONV-RT
+    vm_size: "Standard_D4_v3"
+    data_disks:
+      - size: 30
+        storage_account_type: "Standard_LRS" 
+  - name: HTTP_RT
+    resource_group_name: CIF-CONV-RT
+    vm_size: "Standard_D11_v2"
+    data_disks:
+     - size: 30
+       storage_account_type: "Standard_LRS"     
+          
+  
+        
