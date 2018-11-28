@@ -34,6 +34,37 @@ vmlist:
           - BPM_Coffre
           - SDE_Coffre
           - HTTP_Coffre
+  - name: "{{ item }}"
+    resource_group_name: CIF-CONV-TU
+    vm_size: "Standard_D2_v2"
+    data_disks:
+      - size: 30
+        storage_account_type: "Standard_LRS      
+     with_items:
+          - BDD_TU
+          - CoreBanking_TU
+          - X3S_TU
+          - X3_TU
+          - BPM_TU
+          - SDE_TU
+          - HTTP_Coffre
+          - Mapping_TU
+    - name: "{{ item }}"
+    resource_group_name: CIF-CONV-TU
+    vm_size: "Standard_D2_v2"
+    data_disks:
+      - size: 30
+        storage_account_type: "Standard_LRS      
+     with_items:
+          - BDD_TU
+          - CoreBanking_TU
+          - X3S_TU
+          - X3_TU
+          - BPM_TU
+          - SDE_TU
+          - HTTP_Coffre
+          - Mapping_TU    
+          
           
         # storage_account_type: "Premium_LRS"
   - name: BDD_TU
@@ -78,5 +109,30 @@ vmlist:
        vm_size: "Standard_D2_v2"
        data_disks:
         - size: 30
-          storage_account_type: "Standard_LRS"     
-        
+          storage_account_type: "Standard_LRS" 
+          
+     - name: BDD_RT
+       resource_group_name: CIF-CONV-RT
+       vm_size: "Standard_D8_v3"
+       data_disks:
+        - size: 30
+          storage_account_type: "Standard_LRS" 
+      - name: CoreBanking_RT
+       resource_group_name: CIF-CONV-RT
+       vm_size: "Standard_D4_v2"
+       data_disks:
+        - size: 30
+          storage_account_type: "Standard_LRS"
+      
+      - name: X3S_RT
+       resource_group_name: CIF-CONV-RT
+       vm_size: "Standard_D3_v2"
+       data_disks:
+        - size: 30
+          storage_account_type: "Standard_LRS" 
+       - name: X3S_RT
+       resource_group_name: CIF-CONV-RT
+       vm_size: "Standard_D3_v2"
+       data_disks:
+        - size: 30
+          storage_account_type: "Standard_LRS"    
